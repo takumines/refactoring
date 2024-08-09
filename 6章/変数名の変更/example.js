@@ -3,11 +3,11 @@
  | リファクタリング前
  |--------------------------------------------------------------------------
  */
-let tpHd = "untitled";
+let tpHd = 'untitled'
 // 変数の参照
-result += `<h1>${tpHd}</h1>`;
+result += `<h1>${tpHd}</h1>`
 // 変数の更新
-tpHd = obj["articleTitle"];
+tpHd = obj['articleTitle']
 
 /*
  |--------------------------------------------------------------------------
@@ -15,21 +15,24 @@ tpHd = obj["articleTitle"];
  |--------------------------------------------------------------------------
  */
 // 変数のカプセル化をする
-result += `<h1>${title()}</h1>`;
-setTitle(obj["articleTitle"]);
+result += `<h1>${title()}</h1>`
+setTitle(obj['articleTitle'])
 
-function title() {
-  return tpHd;
+function title () {
+  return tpHd
 }
-function setTitle(arg) {
-  tpHd = arg;
+
+function setTitle (arg) {
+  tpHd = arg
 }
 
 // 変数名の変更
-let _title = "untitled";
-function title() {
-  return _title;
+let _title = 'untitled'
+
+function title () {
+  return _title
 }
-function setTitle(arg) {
-  _title = arg;
+
+function setTitle (arg) {
+  _title = arg
 }

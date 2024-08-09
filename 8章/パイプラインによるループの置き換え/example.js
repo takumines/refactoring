@@ -3,10 +3,10 @@
  | リファクタリング前
  |--------------------------------------------------------------------------
  */
-const name = [];
+const name = []
 for (const i of input) {
   if (i.job === 'programmer') {
-    name.push(i.name);
+    name.push(i.name)
   }
 }
 
@@ -15,4 +15,4 @@ for (const i of input) {
  | リファクタリング後
  |--------------------------------------------------------------------------
  */
-const name = input.filter(i => i.job === 'programmer').map(i => i.name);
+const name = input.filter(i => i.job === 'programmer').map(i => i.name)

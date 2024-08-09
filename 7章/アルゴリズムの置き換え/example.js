@@ -5,17 +5,17 @@
  */
 const foundPerson = (people) => {
   for (let i = 0; i < people.length; i++) {
-    if (people[i] === "Don") {
-      return "Don";
+    if (people[i] === 'Don') {
+      return 'Don'
     }
-    if (people[i] === "John") {
-      return "John";
+    if (people[i] === 'John') {
+      return 'John'
     }
-    if (people[i] === "kent") {
-      return 'kent';
+    if (people[i] === 'kent') {
+      return 'kent'
     }
 
-    return '';
+    return ''
   }
 }
 /*
@@ -24,6 +24,6 @@ const foundPerson = (people) => {
  |--------------------------------------------------------------------------
  */
 const foundPerson = (people) => {
-  const candidates = ['Don', 'John', 'kent'];
-  return people.find(p => candidates.includes(p)) || '';
+  const candidates = ['Don', 'John', 'kent']
+  return people.find(p => candidates.includes(p)) || ''
 }

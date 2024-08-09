@@ -1,65 +1,67 @@
 import { Producer } from './producer'
 
 export class Province {
-  constructor(doc) {
-    this._name = doc.name;
-    this._producers = [];
-    this._totalProduction = 0;
-    this._demand = doc.demand;
-    this._price = doc.price;
+  constructor (doc) {
+    this._name = doc.name
+    this._producers = []
+    this._totalProduction = 0
+    this._demand = doc.demand
+    this._price = doc.price
 
-    doc.producers.forEach(d => this.addProducer(new Producer(this, d)));
+    doc.producers.forEach(d => this.addProducer(new Producer(this, d)))
   }
 
-  get name() {
+  get name () {
     return this._name
   }
-  get producers() {
+
+  get producers () {
     return this._producers.slice()
   }
-  get totalProduction() {
+
+  get totalProduction () {
     return this._totalProduction
   }
 
-  set totalProduction(arg) {
+  set totalProduction (arg) {
     this._totalProduction = arg
   }
 
-  get demand() {
+  get demand () {
     return this._demand
   }
 
-  set demand(arg) {
+  set demand (arg) {
     this._demand = parseInt(arg)
   }
 
-  get price() {
+  get price () {
     return this._price
   }
 
-  set price(arg) {
+  set price (arg) {
     this._price = parseInt(arg)
   }
 
-  get shortfall() {
-    return this._demand - this.totalProduction;
+  get shortfall () {
+    return this._demand - this.totalProduction
   }
 
-  get profit() {
-    return this.demandValue - this.demandCost;
+  get profit () {
+    return this.demandValue - this.demandCost
   }
 
-  get demandValue() {
-    return this.satisfiedDemand * this.price;
+  get demandValue () {
+    return this.satisfiedDemand * this.price
   }
 
-  get satisfiedDemand() {
-    return Math.min(this._demand, this.totalProduction);
+  get satisfiedDemand () {
+    return Math.min(this._demand, this.totalProduction)
   }
 
-  get demandCost() {
-    let remainingDemand = this.demand;
-    let result = 0;
+  get demandCost () {
+    let remainingDemand = this.demand
+    let result = 0
     this.producers
       .sort((a, b) => a.cost - b.cost)
       .forEach(p => {
@@ -68,22 +70,22 @@ export class Province {
         result += contribution * p.cost
       })
 
-    return result;
+    return result
   }
 
-  addProducer(arg) {
+  addProducer (arg) {
     this._producers.push(arg)
-    this._totalProduction += arg.production;
+    this._totalProduction += arg.production
   }
 }
 
-export function sampleProvinceData() {
+export function sampleProvinceData () {
   return {
-    name: "Asia",
+    name: 'Asia',
     producers: [
-      { name: "Byzantium", cost: 10, production: 9 },
-      { name: "Attalia", cost: 12, production: 10 },
-      { name: "Sinope", cost: 10, production: 6 }
+      { name: 'Byzantium', cost: 10, production: 9 },
+      { name: 'Attalia', cost: 12, production: 10 },
+      { name: 'Sinope', cost: 10, production: 6 }
     ],
     demand: 30,
     price: 20
